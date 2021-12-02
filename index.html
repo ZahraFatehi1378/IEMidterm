@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    body {
+      background-image: url('./images/bg.jpeg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    }
+    </style>
+        <link rel="stylesheet" href="./style/style.css">
+        <script type="text/javascript" src='js.js'> </script>
+    </head>
+    <body>
+        
+    <div class="center">
+    
+    <div class="grid-container">
+      <div class="grid-item">
+          <h1>Mr. or Ms.?</h1>
+          <div>
+              <label class="pure-material-textfield-standard" id="input-parent">
+                  <input id="name-input" placeholder=" " maxlength="250" oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'');">
+                  <span>Name</span>
+              </label>
+              <!-- RADIO BUTTONS -->
+              
+              <div class="radio-parent" id="radio-parent1" style="margin-top: 20px;">
+                  <input type="radio" name="radio" id="radio1">
+                  <label for="radio1" class="radio-label">Male</label>
+              </div><br>
+              
+              <div class="radio-parent" id="radio-parent2">
+                  <input type="radio" name="radio" id="radio2">
+                  <label for="radio2" class="radio-label">Female</label>
+              </div><br>
+              <script>shakeAnimInit();</script>
+              
+              <button class="btn" id="submit" type="button" onclick="submit()"><span>Submit</span></button>
+              <br>
+              <button class="btn" type="button" onclick="save()"><span>Save</span></button>
+          </div>
+      </div>
+      <div class="grid-item">
+          <h1>Prediction</h1>
+          <p id="response">Submit a name first...</p>
+          
+          <svg class="spinner" id="loading" visibility="hidden" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="circle" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg>
+          
+          <div class="saved-answer" id="saved">
+              <h1>Saved Answer</h1>
+              <p class="p2" id="saved_response"></p>
+              <button class="btn" type="button" onclick="clearNow()"><span>Clear</span></button>
+          </div>
+          <script>checkSavedAnswer();</script>
+      </div>
+      
+    </div>
+    
+    </div>
+    </body>
+</html>

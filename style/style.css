@@ -1,0 +1,403 @@
+/*central blur box
+this box holds all components and with transform we can put it in the center
+*/
+.center {
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    width: 50%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.60);
+}
+
+/*grid constrain for main bulr box in center*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-columns: 50% 50%;
+    margin: 10px;
+    margin-left: 20px;
+}
+
+/*margin for saving the answer*/
+.saved-answer {
+    margin-top: 44px;
+}
+
+/*set color and font for important titles like Mr. or Ms.? , Prediction , Saved Answer*/
+h1 {
+    color: white;
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+}
+
+/*set color and font for titles */
+p {
+    color: white;
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    padding-top: 10px;
+}
+
+/*set margin*/
+p.p2 {
+    margin-top: -10px;
+}
+
+
+span.colored {
+    color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+
+
+/* TextField https://codepen.io/finnhvman/pen/GyzbEj */
+
+.pure-material-textfield-standard {
+    margin-top: -10px;
+    position: relative;
+    display: inline-block;
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 16px;
+    line-height: 1.5;
+    width: 80%;
+    overflow: hidden;
+}
+
+/* Input, Textarea */
+.pure-material-textfield-standard > input,
+.pure-material-textfield-standard > textarea {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    border-top: solid 27px transparent;
+    border-bottom: solid 1px rgba(var(--pure-material-onsurface-rgb, 255, 255, 255), 0.6);
+    padding: 0 0 4px;
+    width: 100%;
+    height: inherit;
+    color: rgba(var(--pure-material-onsurface-rgb, 255, 255, 255), 0.87);
+    background-color: transparent;
+    box-shadow: none; /* Firefox */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    transition: border-bottom 0.2s, background-color 0.2s;
+}
+
+/* Span */
+.pure-material-textfield-standard > input + span,
+.pure-material-textfield-standard > textarea + span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    box-sizing: border-box;
+    padding: 7px 0 0;
+    color: rgba(var(--pure-material-onsurface-rgb, 255, 255, 255), 0.6);
+    font-size: 75%;
+    line-height: 18px;
+    pointer-events: none;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Underline */
+.pure-material-textfield-standard > input + span::after,
+.pure-material-textfield-standard > textarea + span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    transform-origin: bottom center;
+    transform: scaleX(0);
+    transition: transform 0.2s;
+}
+
+/* Hover */
+.pure-material-textfield-standard > input:hover,
+.pure-material-textfield-standard > textarea:hover {
+    border-bottom-color: rgba(var(--pure-material-onsurface-rgb, 255, 255, 255), 0.87);
+}
+
+/* Placeholder-shown */
+.pure-material-textfield-standard > input:not(:focus):placeholder-shown + span,
+.pure-material-textfield-standard > textarea:not(:focus):placeholder-shown + span {
+    font-size: inherit;
+    line-height: 56px;
+}
+
+/* Focus */
+.pure-material-textfield-standard > input:focus,
+.pure-material-textfield-standard > textarea:focus {
+    outline: none;
+}
+
+.pure-material-textfield-standard > input:focus + span,
+.pure-material-textfield-standard > textarea:focus + span {
+    color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.pure-material-textfield-standard > input:focus + span::before,
+.pure-material-textfield-standard > textarea:focus + span::before {
+    opacity: 0.12;
+}
+
+.pure-material-textfield-standard > input:focus + span::after,
+.pure-material-textfield-standard > textarea:focus + span::after {
+    transform: scale(1);
+}
+
+/* Disabled */
+.pure-material-textfield-standard > input:disabled,
+.pure-material-textfield-standard > textarea:disabled {
+    border-bottom-color: rgba(var(--pure-material-onsurface-rgb, 255, 255, 255), 0.38);
+    color: rgba(var(--pure-material-onsurface-rgb, 255, 255, 255), 0.38);
+}
+
+.pure-material-textfield-standard > input:disabled + span,
+.pure-material-textfield-standard > textarea:disabled + span {
+    color: rgba(var(--pure-material-onsurface-rgb, 255, 255, 255), 0.38);
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        .pure-material-textfield-standard > input,
+        .pure-material-textfield-standard > input + span,
+        .pure-material-textfield-standard > input + span::after,
+        .pure-material-textfield-standard > textarea,
+        .pure-material-textfield-standard > textarea + span,
+        .pure-material-textfield-standard > textarea + span::after {
+            transition-duration: 0.1s;
+        }
+    }
+}
+
+/** Radio Button */
+
+.radio-parent {
+    display: grid;
+    position: relative;
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.radio-label {
+    display: block;
+    padding: 0 0 0 32px;
+    margin-top: -22px;
+    cursor: pointer;
+    color: white;
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+}
+
+input[type="radio"] {
+    appearance: none;
+    margin: 0;
+    font: inherit;
+    color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid white;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+/** Button https://codepen.io/sebj54/pen/oxluI */
+
+.btn {
+  position: relative;
+  margin: 10px auto;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  min-width: 90px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  
+  background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  color: #ecf0f1;
+  
+  transition: background-color .3s;
+}
+
+.btn:hover, .btn:focus {
+  background-color: rgb(var(--pure-material-primary-rgb, 35, 152, 245));
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}
+
+.btn:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(236, 240, 241, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+.spinner
+{
+  -webkit-animation: rotation 1.35s linear infinite;
+  animation: rotation 1.35s linear infinite;
+  stroke: rgb(var(--pure-material-primary-rgb, 35, 152, 245));
+  margin: auto;
+}
+
+@-webkit-keyframes rotation
+{
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes rotation
+{
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+
+.circle
+{
+  stroke-dasharray: 180;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation: turn 1.35s ease-in-out infinite;
+  animation: turn 1.35s ease-in-out infinite;
+}
+
+@-webkit-keyframes turn
+{
+  0% {
+    stroke-dashoffset: 180;
+  }
+
+  50% {
+    stroke-dashoffset: 45;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 180;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes turn
+{
+  0% {
+    stroke-dashoffset: 180;
+  }
+
+  50% {
+    stroke-dashoffset: 45;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 180;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
+}
+
+
+/** Shake */
+
+.shake {
+  animation: shake 0.25s;
+
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
